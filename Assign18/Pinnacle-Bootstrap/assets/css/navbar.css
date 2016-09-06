@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+.container > .navbar-header,
+.container-fluid > .navbar-header,
+.container > .navbar-collapse > .navbar-brand,
+.container-fluid > .navbar-collapse > .navbar-brand{
+	padding-top: 15px;
+	padding-left: 40px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding-top: 40px;
+  padding-right: 25px;
+  color: #ffffff;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.navbar-padding {
+	padding-right: 50px;
+}
