@@ -1,45 +1,50 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
-
+body {
+  width: 100%;
+  margin: 0px;
+}
 .nav-bar {
+  width: 100%;
   background: url('../images/demo_header.jpg') no-repeat;
   background-size: cover;  
   min-height: 100%;
-  margin: -8px;
-  padding-bottom: 0px;
   font-family: "Raleway", sans-serif;
   font-size: 16px;
+  font-size: 1.33vw;
   color: #ffffff;
 }
 
 .contents {
+  width: 100%;
 	background-color:#fff;
-  padding: 30px;
-  margin: -8px;
+  padding-top: 0px;
   font-size: 16px;
+  font-size: 1.33vw;
   color: #ffffff;
 }
 
 .footer {
+  width: 100%;
 	background-color: #444444;
   padding-bottom: 0px;
-  margin: -8px;
   font-size: 16px;
+  font-size: 1.33vw;
   color: #ffffff;
 }
 
 .header-img {
   width: 40%;
-  padding-top: 25px;
-  padding-left: 70px;
-  padding-right: 70px; 
-  padding-bottom: 20px;
+  padding-top: 2.083vw;
+  padding-left: 5.83vw;
+  padding-right: 5.83vw; 
+  padding-bottom: 1.667vw;
 }
 
 .header-links {
   width: 60%;
-  padding-top: 20px;
-  padding-right: 30px; 
-  padding-bottom: 20px;
+  padding-top: 1.667vw;
+  padding-right: 2.5vw; 
+  padding-bottom: 1.667vw;
 }
 .header-underline {
   margin-top: 0;
@@ -51,14 +56,15 @@
 }
 
 .navbar-links {
-  padding: 20px;
+  padding: 1.667vw;
 }
 
 .heading-text {
 	padding-top: 150px;
 	padding-bottom: 150px;
 	text-align: center;
-	font-size: 120px;
+  font-size: 120px;
+  font-size: 10vw;
 	font-weight: bold;
 }
 
@@ -66,7 +72,8 @@
 	padding-top: 50px;
 	text-align: center;
 	font-family: "Raleway", sans-serif;
-	font-size: 26px;
+  font-size: 26px;
+	font-size: 2.167vw;
 	color: #444444;
 }
 
@@ -74,7 +81,7 @@
 	text-align: left;
   margin: 10px;
 	font-family: "Raleway", sans-serif;
-	color: #444444;
+	color: #8f8f8f;
 }
 
 .footer-text {
@@ -83,25 +90,37 @@
 	text-align: center;
 	font-family: "Raleway", sans-serif;
 	font-size: 26px;
+  font-size: 2.167vw;
 	color: #fff;
+}
+
+.image-text {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 5px;
+  font-size: 11px;
+  font-size: .916vw;
+  color: #8f8f8f;
 }
 
 .article-text {
 	font-family: Arial, Helvetica, sans-serif;
   margin: 5px;
 	font-size: 14px;
+  font-size: 1.167vw;
 	color: #444444;
 }
 
 .link-text {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
-	color: #FF4500;
+  font-size: 1.167vw;
+	color: #FF7700;
 }
 
 .copyright-text {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10px;
+  font-size: .833vw;
   color: #fff;
   padding-top: 10px
   padding-left: 30px;
@@ -114,6 +133,7 @@
   margin: 5px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
+  font-size: 1.167vw;
 	color: #fff;
 }
 
@@ -140,19 +160,24 @@
 }
 
 .footer-logo {
-  padding-left: 60px;
-  width: 30%;
+  width: 50%;
+  padding-left: 5%;
 }
 
 .footer-space {
-  width: 20%;
+  
 }
 
 .footer-links {
-  width: 30%;
-  padding-left: 60px;
+  width: 50%;
+  padding-left: 5%;
+  padding-right: 20%;
 }
 
-table td img {
+.image-content {
     width: 100% !important;
+}
+
+.footer-image {
+    width: 50% !important;
 }
