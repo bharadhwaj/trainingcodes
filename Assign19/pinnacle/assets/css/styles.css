@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+  width: 100%;
+  margin: 0px;
+}
+
+.header-home {
+  width: 100%;
+  background: url('../images/demo_header.jpg') no-repeat;
+  background-size: cover;  
+  min-height: 100%;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.header-register {
+  width: 100%;
+  background-size: cover;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+
+.contents {
+  width: 100%;
+    background-color:#fff;
+  padding-top: 0px;
+  font-size: 16px;
+  font-size: 1.33vw;
+  color: #ffffff;
+}
+
+.content {
+  width: 100%;
+  background-color:#fff;
+  padding-top: 0px;
+  font-size: 16px;
+  font-size: 1.33vw;
+  color: #000;
+}
+
+.footer {
+  width: 100%;
+    background-color: #444444;
+  padding-bottom: 0px;
+  font-size: 16px;
+  font-size: 1.33vw;
+  color: #ffffff;
+}
+
+.register-form {
+  padding: 50px;
+}
+
+.textbox { 
+  -webkit-border-radius: 10px; 
+  -moz-border-radius: 10px; 
+  border-radius: 10px; 
+  border: 1px solid #C2C2C2; 
+  outline:0; 
+  height: 20px; 
+  width: 350px;
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+  display: block;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+}
+
+.header-img {
+  width: 40%;
+  padding-top: 2.083vw;
+  padding-left: 5.83vw;
+  padding-right: 5.83vw; 
+  padding-bottom: 1.667vw;
+}
+
+.header-links {
+  width: 60%;
+  padding-top: 1.667vw;
+  padding-right: 2.5vw; 
+  padding-bottom: 1.667vw;
+}
+
+
+.navbar-links {
+  padding: 1.667vw;
+}
+
+
+
+.image-caption {
+  text-align: left;
+  margin: 10px;
+  font-family: "Raleway", sans-serif;
+  color: #8f8f8f;
+}
+
+
+
+.image-text {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 5px;
+  font-size: 11px;
+  font-size: .916vw;
+  color: #8f8f8f;
+}
+
+.links {
+    background-color: #3c3c3c;
+    text-align: left;
+    padding:10px;
+  margin: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+  font-size: 1.167vw;
+    color: #fff;
+}
+
+.subheading {
+    margin-top: 0;
+  border: none;
+  height: 1px;
+  align:center;
+  width: 50px;
+  color: #444444; /* old IE */
+  background-color: #444444; /* Modern Browsers */
+}
+
+.footer-underline {
+    margin-top: 0;
+  margin-bottom: -10px;
+  border: none;
+  height: 1px;
+  align:center;
+  width: 50px;
+  color: #fff; /* old IE */
+  background-color: #fff; /* Modern Browsers */
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  width: 50%;
+  padding-left: 5%;
+}
+
+.footer-links {
+  width: 50%;
+  padding-left: 5%;
+  padding-right: 20%;
+}
+
+.image-content {
+    width: 100% !important;
+}
+
+.footer-image {
+    width: 50% !important;
+}
+
+select.custom-dropdown {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  margin-top: 20px;
+  -moz-border-radius: 10px; 
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid #C2C2C2;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  color:gray;
+  padding: 10px;
+  width: 375px;
+  cursor: pointer;
+  text-align-last: center; 
+  background: #fff url('../images/icon-dropdown.png') no-repeat right;
+}
+
+.btn {
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  border: 0px solid #C2C2C2;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  color:#fff;
+  background: #f3690e;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  width: 375px;
+  display: block;
+  font-weight: bold;
+
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+
+
+.login {
+  font-weight: 900;
+  color: #f3690e;
+  text-decoration: none;
+}
+
+.login:hover {
+  font-weight: bold;
+  color: #f3690e;
+  text-decoration: none;
+}
+
+
+label.item {
+  display: inline-block;
+  position: relative;
+}
+
+label.item > input {
+    visibility: hidden;
+    position: absolute;
+}
+
+label.item > .radio-image::before {
+  content: url("../images/radio-unchecked.png");
+}
+
+label.item > input[type="radio"]:checked + .radio-image::before {
+  content: url("../images/radio-checked.png");
+}
+
