@@ -8,22 +8,12 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <title>Pinnacle</title>
+    <title>Pinnacle | CSV Preview</title>
 
     <link href="assets/css/styles.css" rel="stylesheet">
     <link href="assets/css/navbar.css" rel="stylesheet">
     <link href="assets/css/textstyles.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <script type="text/javascript">
-      //gets the element by its id
- 
-      $('#myFile').bind('change', function() {
-
-        //this.files[0].size gets the size of your file.
-        alert(this.files[0].size);
-
-      });
-    </script>
   </head>
 
   <body>
@@ -66,48 +56,64 @@
           
           if (empty($errors) == true) {
             $csvFile = file($file_tmp);
+            $loadtable = true;
           }
-       }
-       else 
-        $errors[] = 'Please select any file.';
+        }
       ?>
-      
-      <form action="" method="post" enctype="multipart/form-data" actiononsubmit="" >
-        <fieldset>
-          <legend>Upload CSV:</legend>
-          <input type="file" name="file" id="file" accept=".csv">
-          <input type="submit" class="form-button"/>
+
+      <form action="" method="post" enctype="multipart/form-data" >
+        <fieldset class="table-display">
+          <legend>Upload CSV</legend>
+          <input type="file" class="file-text" name="file" id="file" accept=".csv">
+          <input type="submit" class="btn form-button" onclick="codeAddress()"/>
           <span class="error-text"> 
-            <?php
-              foreach ($errors as $key => $error) {
-                 echo"<br> *";
-                 print_r($error);
-              }
-            ?> 
+          <script type="text/javascript">
+            $('#file').bind('change', function() {
+                if (this.files[0].size > 5120) {
+                  alert(' Error: Maximum of 5KB is allowed. \n This file size is: ' + this.files[0].size/1024 + "KB");
+                  $('input[type="submit"]').prop('disabled', true);
+                  $('input[type="submit"]').attr('class', 'btn form-button-disabled');
+                }
+                else {
+                  $('input[type="submit"]').prop('disabled', false);
+                  $('input[type="submit"]').attr('class', 'btn form-button');
+                }
+            });
+          </script>
+          <?php
+            foreach ($errors as $key => $error) {
+               echo"<br> *";
+               print_r($error);
+            }
+          ?> 
           </span>
         </fieldset>
       </form>
-      <fieldset>
-        <legend>Preview of CSV Data:</legend>
-        <table class="display">
-          <?php 
-            $heading = true;
-            foreach ($csvFile as $line) {
-              if ($heading) {
-                echo "<tr><th class='heading'>"; echo str_getcsv($line)[0]; echo "</th>";
-                echo "<th class='heading'>"; echo str_getcsv($line)[1]; echo "</th>";
-                echo "<th class='heading'>"; echo str_getcsv($line)[2]; echo "</th></tr>";
-                $heading = false;
+      <?php
+        if ($loadtable) {
+          echo '<fieldset class="table-display">';
+          echo '<legend>Preview of CSV Data</legend>';
+          echo '<table class="display">';
+             
+              $heading = true;
+              foreach ($csvFile as $line) {
+                if ($heading) {
+                  echo "<tr><th class='heading'>"; echo str_getcsv($line)[0]; echo "</th>";
+                  echo "<th class='heading'>"; echo str_getcsv($line)[1]; echo "</th>";
+                  echo "<th class='heading'>"; echo str_getcsv($line)[2]; echo "</th></tr>";
+                  $heading = false;
+                }
+                else {
+                  echo "<tr class='print-value'><td>"; echo str_getcsv($line)[0]; echo "</td>";
+                  echo "<td>"; echo str_getcsv($line)[1]; echo "</td>";
+                  echo "<td>"; echo str_getcsv($line)[2]; echo "</td></tr>";
+                }
               }
-              else {
-                echo "<tr class='print-value'><td>"; echo str_getcsv($line)[0]; echo "</td>";
-                echo "<td>"; echo str_getcsv($line)[1]; echo "</td>";
-                echo "<td>"; echo str_getcsv($line)[2]; echo "</td></tr>";
-              }
-            }
-          ?>
-        </table>
-      </fieldset>
+            
+          echo '</table>';
+          echo '</fieldset>';
+        }
+      ?>
     </div>
     </center>
 

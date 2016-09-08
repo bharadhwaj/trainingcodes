@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+  width: 100%;
+  margin: 0px;
+}
+
+ul.navbar-static-invert {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff;
+  padding-right: 60px;
+}
+
+ul.navbar-static-invert li.logo {
+  float: left;
+  padding: 35px 60px;
+}
+
+ul.navbar-static-invert li.link {
+  float: right;
+  padding-top: 35px;
+  padding-right: 10px;
+}
+
+ul.navbar-static-invert li.link a {
+  display: inline-block;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+ul.navbar-static-invert li.logo a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+ul.navbar-static-invert li.link a:hover {
+  background-color: #d0d0d0;
+}
+
+ul.navbar-static-invert li.logo a:hover {
+  background-color: transparent;
+}
+
+ul.navbar-static-invert li.icon {
+  display: none;
+  padding-top: 30px;
+  padding-right: 10px;
+}
+
+.navbar-static-invert-line {
+  margin-top: 0;
+  border: none;
+  height: .5px;
+  align: center;
+  color: #444444; 
+  background-color: #444444; 
+}
+
+@media screen and (max-width:680px) {
+  ul.navbar-static-invert li:not(:first-child) {display: none;}
+  ul.navbar-static-invert li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:680px) {
+  ul.navbar-static-invert.responsive {position: relative;}
+  ul.navbar-static-invert.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.navbar-static-invert.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.navbar-static-invert.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+
+ul.navbar-static {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent;
+  padding-right: 4.17vw; 
+}
+
+ul.navbar-static li.logo {
+  float: left;
+  padding: 35px 60px; 
+  /*20 PX = 1.39 vw => 1 vw => 14.388px => 1 px = 0.0695vw */
+}
+
+ul.navbar-static li.link {
+  float: right;
+  padding-top: 35px;
+  padding-right: 10px;
+}
+
+ul.navbar-static li.link a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+ul.navbar-static-invert li.logo a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+ul.navbar-static li.link a:hover {
+  background-color: #C0845D;
+}
+
+ul.navbar-static-invert li.logo a:hover {
+  background-color: transparent;
+}
+
+ul.navbar-static li.icon {
+  display: none;
+  padding-top: 30px;
+  padding-right: 10px;
+}
+
+.navbar-static-line {
+  margin-top: 0;
+  border: none;
+  height: .5px;
+  align: center;
+  color: #fff; 
+  background-color: #fff;
+}
+
+/*@media screen and (max-width:1320px) {
+  ul.navbar-static li:not(:first-child) {
+    display: none;
+  }
+  ul.navbar-static li.icon {
+    float: none;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:1320px) {
+  ul.navbar-static.responsive {
+    position: relative;
+    background: #000;
+  }
+  ul.navbar-static.responsive li.icon {
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+  ul.navbar-static.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.navbar-static.responsive li.link a {
+    display: block;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width:571px) {
+  ul.navbar-static li:not(:first-child) {
+    display: none;
+  }
+  ul.navbar-static li.icon {
+    float: none;
+    display: block;
+  }
+}
+
+@media screen and (max-width:571px) {
+  ul.navbar-static.responsive {
+    position: relative;
+  }
+  ul.navbar-static.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.navbar-static.responsive li {
+    float: none;
+    display: block;
+  }
+  ul.navbar-static.responsive li.link a {
+    display: block;
+    text-align: left;
+  }
+}*/ 
