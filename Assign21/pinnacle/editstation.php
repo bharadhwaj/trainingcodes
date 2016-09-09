@@ -19,30 +19,24 @@
   <body>
     <?php include "navbar.php" ?>
 
-    <?php include "assets/controller/addstation.php" ?>
+    <?php include "assets/controller/editstation.php" ?>
+    <?php include "assets/controller/updatestation.php" ?>
 
-    <?php
-      $stationname = $stationcode = $distance = "";
-      if ($_SERVER["REQUEST_METHOD"] == "GET") {
-          $stationcode = $_GET['stationcode'];
-          $stationname = $_GET['stationname'];
-          $distance = $_GET['distance'];
-      }
-
-    ?>
-    
+      
     <center>
       <div class="content-table">
         <fieldset class="table-display">
-          <legend>Add Railway Station</legend>
+          <legend>Edit Railway Station</legend>
           <form class="register-form" action="" method="post">
+            <center>
 
-              <input type="text" class="textbox" name="stationcode" placeholder="Station Code" pattern="^[A-Za-z]{3,4}$" value='<?php echo $stationcode ?>' required title="3-4 alphabet character code for Railway Station.">
+            	<input type="hidden" name="originalstationcode" value="<?php echo $stationcode; ?>">
+              <input type="text" class="textbox" name="stationcode" placeholder="Station Code" pattern="^[A-Za-z]{3,4}$" value='<?php echo $stationcode; ?>' required title="3-4 alphabet character code for Railway Station.">
               <!-- <input type="text" class="textbox" name="username" placeholder="Username" value='<?php //echo $username ?>'> -->
               <span class="error-text"> <?php //echo $usernameerror;?> </span>
 
 
-              <input type="text" class="textbox" name="stationname" placeholder="Station Name"  value='<?php echo $stationname ?>' required title="Name of the Railway station.">
+              <input type="text" class="textbox" name="stationname" max="" placeholder="Station Name"  value='<?php echo $stationname; ?>' required title="Name of the Railway station.">
               <!-- <input type="email" class="textbox" name="email" placeholder="Email ID" value='<?php echo $email ?>'>  -->
               <span class="error-text"> <?php //echo $emailerror;?> </span>
 
@@ -51,13 +45,14 @@
               <!-- <input type="password" class="textbox" id="password" name="password" placeholder="Password">  --> 
               <span class="error-text"> <?php //echo $passworderror;?> </span>
 
-              <input type="submit" class="btn" name="addstation" value="ADD STATION ">
+              <input type="submit" class="btn" name="updatestation" value="UPDATE">
 
 
               <span class="tail-text"> 
                 Wish to see list of all stations? <strong><a class="login" href="stations.php">CLICK HERE</a></strong>
               </span>
 
+            </center>
           </form>
         </fieldset>
       </div>

@@ -19,29 +19,10 @@
   <body>
     <?php include "navbar.php" ?>
     <center>
-    <div class="content-table">
-<?php include_once 'dbconfig.php'; ?>
-  <?php include "assets/controller/readstations.php" ?>
+    <?php include "assets/controller/dbconfig.php"; ?>
 
-  <?php
-    function test_input($data) {
-      $data = trim($data);
-      $data = stripslashes($data);
-      $data = htmlspecialchars($data);
-      return $data;
-    }
-    echo "<h1> Hello, " . test_input($_POST['stationcode']) . "</h1>";
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(!empty($_POST['stationcode'])) {
-      $sql_query = "DELETE FROM Stations WHERE StationCode='" . test_input($_POST['stationcode'])."'";
-      mysql_query($sql_query);
-    }
-  }
-?>
-  <?php include "assets/controller/readstations.php" ?>
+    <?php include "assets/controller/readstations.php" ?>
 
-
- 
 
       <div class="content-table">
         <fieldset class="table-display">
@@ -64,14 +45,23 @@
               <td> <?php echo $line[0]; ?> </td>
               <td> <?php echo $line[1]; ?> </td>
               <td> <?php echo $line[2]; ?> </td>
-              <td> 
-                <form method="post" action="">
+              <td> <center>
+                <form method="post" action="assets/controller/deletestation.php">
                   <input type="hidden" id="stationcode" name="stationcode" value="<?php echo $line[0]; ?>">
-                  <i class="fa fa-trash fa-2x" aria-hidden="true"></i> 
-                  <input type="submit" name="deletesubmit">
-                </form>
+                   
+                  <button class="table-button" type="submit">
+                    <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                  </button>
+                </form> </center>
               </td>
-              <td> <i class="fa fa-pencil fa-2x" aria-hidden="true"></i> </td>
+              <td> <center>
+                <form method="get" action="editstation.php">
+                  <input type="hidden" id="stationcode" name="stationcode" value="<?php echo $line[0]; ?>">
+                  <button class="table-button edit" type="submit">
+                    <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                  </button>
+                </form> </center>
+              </td>
             </tr>
             <?php } ?>
           </table>

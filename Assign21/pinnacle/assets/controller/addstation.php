@@ -9,6 +9,8 @@
 	 
 	 	$insertquery = " INSERT INTO Stations (StationCode, StationName, Distance) VALUES('$stationcode', '$stationname', $distance)";
 	 	mysql_query($insertquery);
+		header("Location: /pinnacle/stations.php");
+
 	}
 	        
 ?>
