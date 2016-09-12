@@ -19,11 +19,11 @@
   <body>
     <?php include "navbar.php" ?>
 
-    <?php include "assets/controller/registervalidation.php" ?>
+    <?php include "controller/registervalidation.php" ?>
       
     <div class="content">
 
-      <form class="register-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+      <form class="register-form" action="" method="post">
         <center>
 
           <input type="text" class="textbox" name="username" placeholder="Username" pattern="[A-Za-z0-9]{6,12}" value='<?php echo $username ?>' required title="Can only have alphanumeric characters with length 6-12 characters.">

@@ -253,8 +253,8 @@ label.item > .radio-image::before {
 
 label.item > input[type="radio"]:checked + .radio-image::before {
   content: url("../images/radio-checked.png");
-  padding-top: 8px;
 }
+
 table.display {
   border: 1px dashed #A2C537;
   border-collapse: collapse;

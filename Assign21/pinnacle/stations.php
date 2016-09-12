@@ -19,9 +19,8 @@
   <body>
     <?php include "navbar.php" ?>
     <center>
-    <?php include "assets/controller/dbconfig.php"; ?>
 
-    <?php include "assets/controller/readstations.php" ?>
+    <?php include "controller/readstations.php" ?>
 
 
       <div class="content-table">
@@ -36,8 +35,16 @@
               <th class='heading'> Delete </th>
               <th class='heading'> Edit </th>
             </tr>
+            <tr class='print-value'>
+              <td> 1 </td>
+              <td> ERS </td>
+              <td> Ernakulam South </td>
+              <td> 0 </td>
+              <td> - </td>
+              <td> - </td>
+            </tr>
             <?php 
-              $count = 1;
+              $count = 2;
               while ($line = mysql_fetch_row($result)) { 
             ?>
             <tr class='print-value'>
@@ -45,22 +52,25 @@
               <td> <?php echo $line[0]; ?> </td>
               <td> <?php echo $line[1]; ?> </td>
               <td> <?php echo $line[2]; ?> </td>
-              <td> <center>
-                <form method="post" action="assets/controller/deletestation.php">
-                  <input type="hidden" id="stationcode" name="stationcode" value="<?php echo $line[0]; ?>">
-                   
-                  <button class="table-button" type="submit">
-                    <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                  </button>
-                </form> </center>
+              <td> 
+                <center>
+                  <form method="post" action="controller/deletestation.php">
+                    <input type="hidden" id="stationcode" name="stationcode" value="<?php echo $line[0]; ?>">
+                    <button class="table-button" type="submit">
+                      <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                    </button>
+                  </form>
+                </center>
               </td>
-              <td> <center>
-                <form method="get" action="editstation.php">
-                  <input type="hidden" id="stationcode" name="stationcode" value="<?php echo $line[0]; ?>">
-                  <button class="table-button edit" type="submit">
-                    <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
-                  </button>
-                </form> </center>
+              <td> 
+                <center>
+                  <form method="get" action="editstation.php">
+                    <input type="hidden" id="stationcode" name="stationcode" value="<?php echo $line[0]; ?>">
+                    <button class="table-button edit" type="submit">
+                      <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                    </button>
+                  </form> 
+                </center>
               </td>
             </tr>
             <?php } ?>

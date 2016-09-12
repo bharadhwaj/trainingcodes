@@ -21,13 +21,13 @@
     <center>
     <div class="content-table">
 
-      <?php include "assets/controller/csvfile.php" ?>
+      <?php include "controller/csvfile.php" ?>
 
       <form action="" method="post" enctype="multipart/form-data" >
         <fieldset class="table-display">
           <legend>Upload CSV</legend>
           <input type="file" class="file-text" name="file" id="file" accept=".csv">
-          <input type="submit" class="btn form-button"/>
+          <input type="submit" value="Upload" class="btn form-button"/>
           <span class="error-text"> 
           <script type="text/javascript">
             $('#file').bind('change', function() {
@@ -51,7 +51,7 @@
           </span>
         </fieldset>
       </form>
-      <?php include "assets/controller/displaycsvtable.php" ?>
+      <?php include "controller/displaycsvtable.php" ?>
     </div>
     </center>
 
