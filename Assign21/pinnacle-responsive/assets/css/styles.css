@@ -81,6 +81,7 @@ body {
   border: 1px solid gray;
   border-radius: 10px;
   font-family: "Raleway", sans-serif;
+  align: center;
 }
 
 .table-display > legend {
@@ -121,7 +122,9 @@ tr.print-value > td {
 /* Upto this is used in csvpreview.php */
 
 .register-form {
-  padding: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
 }
 
 .content-table {
@@ -209,7 +212,6 @@ label.item > input[type="radio"]:checked + .radio-image::before {
   width: 375px;
   display: block;
   font-weight: bold;
-
 }
 
 .submit-btn:hover {
@@ -217,47 +219,25 @@ label.item > input[type="radio"]:checked + .radio-image::before {
 }
 
 .login {
-  font-weight: 900;
   color: #f3690e;
   text-decoration: none;
 }
 
 .login:hover {
+  text-decoration: none;
+  font-weight: bold;
+  transition: .3s;
+  color: #f3690e;
+}
+
+.login:active {
+  text-decoration: none;
+  transition: .3s;
   font-weight: bold;
   color: #f3690e;
-  text-decoration: none;
 }
 
 /* Upto this is used in register.php */
-
-
-
-.subheading {
-  margin-top: 0;
-  border: none;
-  height: 1px;
-  align:center;
-  width: 50px;
-  color: #444444; /* old IE */
-  background-color: #444444; /* Modern Browsers */
-}
-
-
-.image-content {
-    width: 100% !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 .form-button {
   border: 1px solid grey;

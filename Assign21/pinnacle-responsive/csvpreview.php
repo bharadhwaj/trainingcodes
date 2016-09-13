@@ -30,12 +30,12 @@
             <input type="file" class="file-text" name="file" id="file" accept=".csv">
             <input type="submit" value="Upload" class="btn form-button"/>
             <span class="error-text"> 
-            <?php
-              foreach ($errors as $key => $error) {
-                 echo"<br> *";
-                 print_r($error);
-              }
-            ?> 
+              <?php
+                foreach ($errors as $key => $error) {
+                   echo"<br> *";
+                   print_r($error);
+                }
+              ?> 
             </span>
           </fieldset>
         </form>
@@ -48,18 +48,6 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <script type="text/javascript" src="assets/js/jquery.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      $('#file').bind('change', function() {
-          if (this.files[0].size > 5120) {
-            alert(' Error: Maximum of 5KB is allowed. \n This file size is: ' + this.files[0].size/1024 + "KB");
-            $('input[type="submit"]').prop('disabled', true);
-            $('input[type="submit"]').attr('class', 'btn form-button-disabled');
-          }
-          else {
-            $('input[type="submit"]').prop('disabled', false);
-            $('input[type="submit"]').attr('class', 'btn form-button');
-          }
-      });
-    </script>
+    <script type="text/javascript" src="assets/js/filesizecheck.js"></script>
   </body>
 </html>

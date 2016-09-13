@@ -22,14 +22,15 @@
     
     <?php include "controller/addstation.php" ?>
 
-      <div class="container">
-        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+      <<div class="container">
+        <div align="center" class="col-md-6 col-md-offset-3">
           <fieldset class="table-display">
             <legend align="center">Add Railway Station</legend>
             <form class="register-form" action="" method="post">
                 <?php foreach ($errors as $error) { ?>
                   <span class="error-text"> <?php echo $error;?> </span>
                 <?php } ?>
+
                 <input type="text" class="textbox-register" name="stationcode" placeholder="Station Code" pattern="^[A-Za-z]{3,4}$" value='<?php echo $stationcode ?>' required title="3-4 alphabet character code for Railway Station.">
 
                 <input type="text" class="textbox-register" name="stationname" placeholder="Station Name"  value='<?php echo $stationname ?>' required title="Name of the Railway station.">
@@ -47,6 +48,7 @@
       </div>
 
     <?php include "footer.php" ?>
+    
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <script type="text/javascript" src="assets/js/jquery.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>

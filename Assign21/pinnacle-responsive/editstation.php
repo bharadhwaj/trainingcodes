@@ -23,35 +23,32 @@
     <?php include "controller/editstation.php" ?>
     <?php include "controller/updatestation.php" ?>
       
-    <center>
-      <div class="content-table">
+    <div class="container">
+      <div align="center" class="col-md-6 col-md-offset-3">
         <fieldset class="table-display">
-          <legend>Edit Railway Station</legend>
+          <legend align="center">Edit Railway Station</legend>
           <form class="register-form" action="" method="post">
-            <center>
-              <?php foreach ($errors as $error) { ?>
-                <span class="error-text"> <?php echo $error;?> </span>
-              <?php } ?>
+            <?php foreach ($errors as $error) { ?>
+              <span class="error-text"> <?php echo $error;?> </span>
+            <?php } ?>
 
-              <input type="text" class="textbox" name="stationcode" placeholder="Station Code" pattern="^[A-Za-z]{3,4}$" value='<?php echo $currentstationdetails[0]; ?>' required title="3-4 alphabet character code for Railway Station.">
+            <input type="text" class="textbox-register" name="stationcode" placeholder="Station Code" pattern="^[A-Za-z]{3,4}$" value='<?php echo $currentstationdetails[0]; ?>' required title="3-4 alphabet character code for Railway Station.">
 
-              <input type="text" class="textbox" name="stationname" max="" placeholder="Station Name"  value='<?php echo $currentstationdetails[1]; ?>' required title="Name of the Railway station.">
+            <input type="text" class="textbox-register" name="stationname" max="" placeholder="Station Name"  value='<?php echo $currentstationdetails[1]; ?>' required title="Name of the Railway station.">
 
-              <input type="number" class="textbox" id="distance" name="distance" min = "0" max="4999" value='<?php echo $currentstationdetails[2]; ?>' placeholder="Distance from Source Station in KMs." required title="Distance from the source station of the train in KMs.">
+            <input type="number" class="textbox-register" id="distance" name="distance" min = "0" max="4999" value='<?php echo $currentstationdetails[2]; ?>' placeholder="Distance from Source Station in KMs." required title="Distance from the source station of the train in KMs.">
 
-              <input type="submit" class="btn" name="updatestation" value="UPDATE">
+            <input type="submit" class="submit-btn" name="updatestation" value="UPDATE">
 
+            <span class="tail-text"> 
+              Wish to see list of all stations? <strong><a class="login" href="stations.php">CLICK HERE</a></strong>
+            </span>
 
-              <span class="tail-text"> 
-                Wish to see list of all stations? <strong><a class="login" href="stations.php">CLICK HERE</a></strong>
-              </span>
-
-            </center>
           </form>
         </fieldset>
       </div>
-    </center>
-
+    </div>
+      
     <?php include "footer.php" ?>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <script type="text/javascript" src="assets/js/jquery.js"></script>

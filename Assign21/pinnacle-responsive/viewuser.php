@@ -7,7 +7,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/img/favicon.ico">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <title>Pinnacle | View User</title>
 
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -20,12 +19,12 @@
     <?php include "navbar.php" ?>
     <hr class="navbar-inverse-line">
     
-    <center>
-	    <div class="content-table">
+    <div class="container">
+    	<div align="center" class="col-md-6 col-md-offset-3">
 				<fieldset class="table-display">
 					<legend>User login credentials</legend>
 					<table class="display">
-					<?php session_start(); ?>
+						<?php session_start(); ?>
 						<tr>
 							<th class='heading'> Username </th>
 							<th class='heading'> Email </th>
@@ -40,14 +39,17 @@
 						</tr>
 					</table>
 					<br>
-					<a<strong><a class="login" href="register.php">GOTO REGISTER</a></strong>
+					<a class="login" href="register.php">GOTO REGISTER</a></strong>
 					<br>
 				</fieldset>
 			</div>
-		</center>
+		</div>
+
     <?php include "footer.php" ?>
+    
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <script type="text/javascript" src="assets/js/jquery.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
   </body>
 </html>
