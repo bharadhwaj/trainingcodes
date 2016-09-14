@@ -51,8 +51,9 @@
 		public function deleteStation($stationcode) {
 
 			$count = $this->getRouteCount($stationcode);
-            if ($count == 1) {
-            	$this->getRouteCount($stationcode);
+            
+            if ($count <= 2) {
+            	$this->updateTrain($stationcode);
 			}
 
 			$deletestation = $this->connection->prepare("DELETE FROM Stations WHERE StationCode = ?");
