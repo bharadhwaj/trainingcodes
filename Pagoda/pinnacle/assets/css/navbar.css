@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+  width: 100%;
+  margin: 0px;
+}
+
+.navbar-default {
+  border-color: transparent;
+  font-family: "Raleway", sans-serif;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff;
+  padding-bottom: 30px;
+  padding-left: 30px
+
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+
+.navbar-default .navbar-collapse  {
+  border-color: transparent;
+  border: 0px solid transparent;
+}
+
+.navbar-default > .container-fluid > .navbar-header {
+  padding: 20px;
+}
+
+.navbar-default > .container-fluid > .navbar-collapse > .navbar-right  {
+  padding-right: 20px;
+  padding-top: 23px;
+}
+
+.navbar-collapse > .navbar-right > li {
+  padding: 10px;
+}
+
+.navbar-collapse > .navbar-right > li > a {
+  display: block;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar-collapse > .navbar-right > li > a:hover {
+  transition: 0.3s;
+  background-color: #d0d0d0;
+}
+
+.navbar-inverse {
+  border-color: transparent;
+  background: transparent;
+  font-family: "Raleway", sans-serif;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-bottom: 30px;
+  padding-left: 30px
+
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: transparent;
+}
+
+.navbar-inverse .navbar-collapse  {
+  border-color: transparent;
+}
+
+.navbar-inverse > .container-fluid > .navbar-header {
+  padding: 20px;
+}
+
+.navbar-inverse > .container-fluid > .navbar-collapse > .navbar-right  {
+  padding-right: 20px;
+  padding-top: 23px;
+}
+
+.navbar-inverse > .container-fluid > .navbar-collapse > .navbar-right > li {
+  padding: 10px;
+}
+
+.navbar-inverse > .container-fluid > .navbar-collapse > .navbar-right > li > a {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar-inverse > .container-fluid > .navbar-collapse > .navbar-right > li > a:hover {
+  transition: 0.3s;
+  background-color: #C0845D;
+}
+
+.navbar-inverse-line {
+  margin-top: 0;
+  border: none;
+  height: .5px;
+  align: center;
+  color: #444444; 
+  background-color: #444444; 
+}
+
+.navbar-line {
+  margin-top: 0;
+  border: none;
+  height: .5px;
+  align: center;
+  color: #fff; 
+  background-color: #fff;
+}
