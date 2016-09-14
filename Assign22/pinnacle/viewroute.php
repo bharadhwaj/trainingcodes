@@ -32,6 +32,7 @@
               <tr>
                 <th class='heading'> # </th>
                 <th class='heading'> Station Code </th>
+                <th class='heading'> Distance </th>
               </tr>
               <?php 
                 $count = 1;
@@ -40,6 +41,7 @@
               <tr class='print-value'>
                 <td> <?php echo $count++; ?> </td>
                 <td> <?php echo $stationdetails[2]; ?> </td>
+                <td> <?php echo $stationdetails[3]; ?> </td>
               </tr>
               <?php } ?>
             </table>

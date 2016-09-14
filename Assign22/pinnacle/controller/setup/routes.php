@@ -22,15 +22,15 @@
 			$addroute->close();
 		}
 
-		public function createRouteDetails($routename, $stationcode) {
-			$addstationroute = $this->connection->prepare("INSERT INTO RouteDetails (RouteName, StationCode) VALUES(?, ?)");
-			$addstationroute->bind_param("ss", $routename, $stationcode);
+		public function createRouteDetails($routename, $stationcode, $distance) {
+			$addstationroute = $this->connection->prepare("INSERT INTO RouteDetails (RouteName, StationCode, Distance) VALUES(?, ?, ?)");
+			$addstationroute->bind_param("sss", $routename, $stationcode, $distance);
 			$addstationroute->execute();
 			$addstationroute->close();
 		}
 
 		public function readRoutes() {
-			$readroutes = $this->connection->prepare("SELECT * FROM Routes");
+			$readroutes = $this->connection->prepare("SELECT * FROM Routes WHERE RouteName != 'N/A'");
 			return $readroutes;
 		}
 
@@ -48,7 +48,7 @@
 		}
 
 		public function getRoutes($stationcode) {
-			$getroute = $this->connection->query("SELECT * FROM RouteDetails WHERE StationCode = '$stationcode'");
+			$getroute = $this->connection->query("SELECT * FROM RouteDetails WHERE StationCode = '$stationcode' ORDER BY Distance");
 			return $getroute;
 		}
 
@@ -58,12 +58,12 @@
 		}
 
 		public function getStations($routename) {
-			$getstations = $this->connection->query("SELECT * FROM RouteDetails WHERE RouteName = '$routename'");
+			$getstations = $this->connection->query("SELECT * FROM RouteDetails WHERE RouteName = '$routename' ORDER BY Distance");
 			return $getstations;
 		}
 
 		public function getStationDetails($routename) {
-			$getstations = $this->connection->query("SELECT * FROM RouteDetails WHERE RouteName = '$routename'");
+			$getstations = $this->connection->query("SELECT * FROM RouteDetails WHERE RouteName = '$routename' ORDER BY Distance");
 			return $getstations;
 		}
 

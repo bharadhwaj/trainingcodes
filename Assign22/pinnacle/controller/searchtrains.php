@@ -21,7 +21,7 @@
 			$searchstation = $stationcode;
 			$getroute = $route->getRoutes($stationcode);
 			while ($newroutedetails = $getroute->fetch_array()) {
-				$routearray[] = $newroutedetails[0];
+				$routearray[] = $newroutedetails[1];
 			}
 
 			foreach ($routearray as $routename) {
@@ -30,6 +30,7 @@
 					$trainarray[] = $newtraindetails;
 				}
 			}
+
 		}
 
 ?>

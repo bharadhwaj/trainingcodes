@@ -7,37 +7,33 @@ CREATE TABLE Stations (
 	PRIMARY KEY(StationCode) 
 );
 
+INSERT INTO Stations VALUES ('ERS', 'Ernakulam South', 0);
+
 CREATE TABLE Routes ( 
-	RouteName varchar(32) NOT NULL,
-	SourceStation varchar(4) NOT NULL,
-	DestinationStation varchar(4) NOT NULL,
+	RouteName varchar(64) NOT NULL,
+	SourceStation varchar(4),
+	DestinationStation varchar(4),
 	PRIMARY KEY(RouteName),
-	FOREIGN KEY (SourceStation) REFERENCES Stations(StationCode),
-	FOREIGN KEY (DestinationStation) REFERENCES Stations(StationCode)
+	FOREIGN KEY (SourceStation) REFERENCES Stations(StationCode) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (DestinationStation) REFERENCES Stations(StationCode) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-INSERT INTO Routes VALUES
-	('ERS-PGT');
+INSERT INTO Routes(RouteName) VALUES ('N/A');
 
 CREATE TABLE RouteDetails ( 
 	RouteID int NOT NULL AUTO_INCREMENT,
-	RouteName varchar(32) NOT NULL,
-	StationCode varchar(32) NOT NULL, 
+	RouteName varchar(64) NOT NULL,
+	StationCode varchar(4) NOT NULL, 
+	Distance int NOT NULL,
 	PRIMARY KEY(RouteID),
-	FOREIGN KEY (RouteName) REFERENCES Routes(RouteName) ON DELETE CASCADE,
-	FOREIGN KEY (StationCode) REFERENCES Stations(StationCode) ON DELETE CASCADE
+	FOREIGN KEY (RouteName) REFERENCES Routes(RouteName) ON UPDATE CASCADE ON DELETE CASCADE ,
+	FOREIGN KEY (StationCode) REFERENCES Stations(StationCode) ON UPDATE CASCADE ON DELETE CASCADE
 );
-
-
-INSERT INTO RouteDetails (RouteName, StationCode) VALUES
-	('ERS-PGT', 'ERS'),
-	('ERS-PGT', 'TCR'),
-	('ERS-PGT', 'PGT');
 
 CREATE TABLE Trains ( 
 	TrainNumber int NOT NULL, 
-	TrainName varchar(32) NOT NULL, 
-	RouteName varchar(32) NOT NULL,
+	TrainName varchar(64) NOT NULL, 
+	RouteName varchar(64),
 	PRIMARY KEY(TrainNumber),
-	FOREIGN KEY (RouteName) REFERENCES Routes(RouteName) ON DELETE CASCADE
+	FOREIGN KEY (RouteName) REFERENCES Routes(RouteName) ON UPDATE CASCADE
 );

@@ -31,7 +31,30 @@
 			return $readstations;
 		}
 
+		public function getRouteCount($stationcode) {
+			$readcount = $this->connection->prepare("SELECT COUNT(RouteName) FROM RouteDetails WHERE RouteName = (SELECT RouteName FROM RouteDetails WHERE StationCode = ?)");
+			$readcount->bind_param('s', $stationcode);
+			$readcount->bind_result($count);
+            $readcount->execute();
+            $readcount->fetch();
+			$readcount->close();
+            return $count;
+		}
+
+		public function updateTrain($stationcode) {
+			$updatetrain = $this->connection->prepare("UPDATE Trains SET RouteName = 'N/A' WHERE RouteName = (SELECT RouteName FROM RouteDetails WHERE StationCode= ?)");
+	 		$updatetrain->bind_param("s", $stationcode);
+			$updatetrain->execute();
+			$updatetrain->close();
+		}
+
 		public function deleteStation($stationcode) {
+
+			$count = $this->getRouteCount($stationcode);
+            if ($count == 1) {
+            	$this->getRouteCount($stationcode);
+			}
+
 			$deletestation = $this->connection->prepare("DELETE FROM Stations WHERE StationCode = ?");
 			$deletestation->bind_param("s", $stationcode);
 			$deletestation->execute();

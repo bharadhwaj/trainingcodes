@@ -1,8 +1,10 @@
 <?php
 
 	include_once 'setup/routes.php';
+	include_once 'setup/stations.php';
 
 	$route = new Routes();
+	$station = new Stations();
 	$errors = array();
 	$stationarray = array();
 	$errorexist = false;
@@ -28,14 +30,18 @@
 
 	 		while($allstations->fetch()) {
 	 			if(isset($_POST[$currentstationcode]))
-	 			$stationarray[] = $currentstationcode;
+	 			$stationarray[] = array($currentstationcode, $currentdistance);
 	 		}
 
 			$route->createRoute($routename, $sourcestation, $destinationstation);
-		echo "<h1> Hello, $routename, $sourcestation, $destinationstation </h1>";
-			
-			foreach ($stationarray as $key => $stationcode) {
-				$route->createRouteDetails($routename, $stationcode);
+
+			$getstation = $station->getStation($sourcestation);
+			$currentstationdistance = $getstation->fetch_array()[2];
+
+			echo "<h1> Hello, $routename, $sourcestation, $destinationstation $currentstationdistance</h1>";
+
+			foreach ($stationarray as $key => $stations) {
+				$route->createRouteDetails($routename, $stations[0], abs($stations[1]-$currentstationdistance));
 			}
 			header("Location: /pinnacle/routes.php");
 	 	}
