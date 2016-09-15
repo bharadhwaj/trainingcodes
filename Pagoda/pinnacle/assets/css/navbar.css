@@ -5,6 +5,15 @@ body {
   margin: 0px;
 }
 
+.navbar-brand > img {
+  width: 100%;
+  height: auto;
+}
+
+.container-fluid .navbar-toggle {
+  margin: 25px 35vw 25px 0;
+}
+
 .navbar-default {
   border-color: transparent;
   font-family: "Raleway", sans-serif;
@@ -13,9 +22,8 @@ body {
   padding: 0;
   overflow: hidden;
   background-color: #fff;
-  padding-bottom: 30px;
-  padding-left: 30px
-
+  padding-bottom: 2vw;
+  padding-left: 1vw;
 }
 
 .navbar-default .navbar-toggle {
@@ -62,8 +70,8 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  padding-bottom: 30px;
-  padding-left: 30px
+  padding-bottom: 2vw;
+  padding-left: 1vw;
 
 }
 
