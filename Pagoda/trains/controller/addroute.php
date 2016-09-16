@@ -33,9 +33,8 @@
 	 			$stationarray[] = array($currentstationcode, $currentdistance);
 	 		}
 
-	 		
-	 		else {
-	 			list($errorexist, $errors) = $train->errorCheckRoutes($sourcestation, $destinationstation, $stationarray);
+ 			list($errorexist, $errors) = $route->errorCheckRoutes($routename, $sourcestation, $destinationstation, $stationarray);
+ 			if (! $errorexist) {
 				$route->createRoute($routename, $sourcestation, $destinationstation);
 
 				$getstation = $station->getStation($sourcestation);
