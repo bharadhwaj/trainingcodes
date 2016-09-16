@@ -90,7 +90,7 @@
 				$errors[] = "* Destination station can't be empty.<br>";
 				$errorexist = true;
 			}
-		 	if ($sourcestation = $destinationstation) {
+		 	if ($sourcestation == $destinationstation) {
 				$errors[] = "* Source and Destination can't be same station.<br>";
 				$errorexist = true;
 			}
