@@ -7,20 +7,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/img/favicon.ico">
+    
     <title>Pinnacle | Trains</title>
 
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/styles.css" rel="stylesheet">
     <link href="assets/css/textstyles.css" rel="stylesheet">
     <link href="assets/css/navbar.css" rel="stylesheet">
-
-
   </head>
 
   <body>
     <?php include "navbar.php" ?>
     <hr class="navbar-inverse-line">
-
 
     <?php include "controller/readtrains.php" ?>
 
@@ -28,51 +26,66 @@
         <div align="center" class="col-md-10 col-md-offset-1">
           <fieldset class="table-display">
             <legend align="center">All Train Details</legend>
-            <table class="display">
-              <tr>
-                <th class='heading'> # </th>
-                <th class='heading'> Train Number </th>
-                <th class='heading'> Train Name </th>
-                <th class='heading'> Route Name </th>
-                <th class='heading'> Delete </th>
-                <th class='heading'> Edit </th>
-              </tr>
-              <?php 
-                $count = 1;
-                $readtrains->bind_result($trainnumber, $trainname, $routename);
-                $readtrains->execute();
-                while($readtrains->fetch()){
-              ?>
-              <tr class='print-value'>
-                <td> <?php echo $count++; ?> </td>
-                <td> <?php echo $trainnumber; ?> </td>
-                <td> <?php echo $trainname; ?> </td>
-                <td> <?php echo $routename; ?> </td>
-                <td> 
-                  <center>
-                    <form method="post" action="controller/deletetrain.php">
-                      <input type="hidden" id="trainnumber" name="trainnumber" value="<?php echo $trainnumber; ?>">
-                      <button class="table-button trash" type="submit">
-                        <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                      </button>
-                    </form>
-                  </center>
-                </td>
-                <td> 
-                  <center>
-                    <form method="get" action="edittrain.php">
-                      <input type="hidden" id="trainnumber" name="trainnumber" value="<?php echo $trainnumber; ?>">
-                      <button class="table-button edit" type="submit">
-                        <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
-                      </button>
-                    </form> 
-                  </center>
-                </td>
-              </tr>
-              <?php } ?>
-            </table>
+            <?php 
+              if (!empty($trainexist->fetch())) { 
+            ?>
+              <table class="display">
+                <tr>
+                  <th class='heading'> # </th>
+                  <th class='heading'> Train Number </th>
+                  <th class='heading'> Train Name </th>
+                  <th class='heading'> Route Name </th>
+                  <?php if ($_SESSION["isadmin"]|| $_COOKIE["isadmin"]) {?>
+                  <th class='heading'> Edit </th>
+                  <th class='heading'> Delete </th>
+                  <?php } ?>
+                </tr>
+                <?php 
+                  $count = 1;
+                  $readtrains->bind_result($trainnumber, $trainname, $routename);
+                  $readtrains->execute();
+                  while($readtrains->fetch()){
+                ?>
+                  <tr class='print-value'>
+                    <td> <?php echo $count++; ?> </td>
+                    <td> <?php echo $trainnumber; ?> </td>
+                    <td> <?php echo $trainname; ?> </td>
+                    <td> <?php echo $routename; ?> </td>
+                    <?php if ($_SESSION["isadmin"]|| $_COOKIE["isadmin"]) {?>
+                    <td> 
+                      <center>
+                        <form method="get" action="edittrain.php">
+                          <input type="hidden" id="trainnumber" name="trainnumber" value="<?php echo $trainnumber; ?>">
+                          <button class="table-button edit" type="submit">
+                            <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                          </button>
+                        </form> 
+                      </center>
+                    </td>
+                    <td> 
+                      <center>
+                        <form method="post" action="controller/deletetrain.php">
+                          <input type="hidden" id="trainnumber" name="trainnumber" value="<?php echo $trainnumber; ?>">
+                          <button class="table-button trash" type="submit">
+                            <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                          </button>
+                        </form>
+                      </center>
+                    </td>
+                    <?php } ?>
+                  </tr>
+                <?php } ?>
+              </table>
+            <?php } else { ?>
+              <span class="error-text"> 
+                Sorry, No Trains to display! Add Trains using below link. 
+              </span>
+              <br/>
+            <?php } ?>
             <br>
+            <?php if ($_SESSION["isadmin"]|| $_COOKIE["isadmin"]) {?>
             <a class="login" href="addtrain.php">ADD NEW TRAIN</a></strong>
+            <?php } ?>
             <br>
           </fieldset>
         </div>

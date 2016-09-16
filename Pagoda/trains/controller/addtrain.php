@@ -1,6 +1,12 @@
 <?php
 
 	include_once 'setup/trains.php';
+	
+	if (!$_SESSION["login"] && !$_COOKIE["login"])
+			header("Location: /login.php");
+	if (!$_SESSION["isadmin"] && !$_COOKIE["isadmin"])
+			header("Location: /error404.php");
+
 	$train = new Trains();
 	$errors = array();
 	$errorexist = false;

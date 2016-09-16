@@ -1,6 +1,7 @@
 <?php
 
 	include_once 'setup/trains.php';
+	
 	$errors = array();
 	$errorexist = false;
 	$currenttrainnumber = $train->connection->real_escape_string($_GET['trainnumber']);

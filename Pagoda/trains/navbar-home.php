@@ -1,4 +1,11 @@
-<?php include_once "controller/setup/dbconfig.php" ?>
+<?php 
+
+  include_once "controller/setup/dbconfig.php";
+  include_once "controller/setup/users.php";
+  $user = new Users(); 
+  session_start();
+  
+?>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -16,13 +23,34 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/">Home</a></li>
+        <?php 
+          $loggedin = false;
+          if (isset($_COOKIE['username'])) { 
+            $username = $_COOKIE['username'];
+            $loggedin = true;
+          }
+          else if (isset($_SESSION['username'])) { 
+            $username = $_SESSION['username'];
+            $loggedin = true;
+          } 
+          if ($loggedin) {
+        ?>
         <li><a href="csvpreview.php">CSV Preview</a></li>
-        <li><a href="register.php">Register</a></li>
         <li><a href="stations.php">Stations</a></li>
         <li><a href="routes.php">Routes</a></li>
         <li><a href="trains.php">Trains</a></li>
         <li><a href="searchtrains.php">Search</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, <?php echo $username; ?> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="logout.php">Logout</a></li>
+          </ul>
+        </li>
+        
+        <?php } else { ?>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="register.php">Register</a></li>
+        <?php } ?>
       </ul>
     </div>
   </div>

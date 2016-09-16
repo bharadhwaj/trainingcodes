@@ -27,24 +27,24 @@
           <fieldset class="table-display">
             <legend align="center">Add Railway Station</legend>
             <form class="register-form" action="" method="post">
-                <?php 
-                  if (! empty($errors))
-                    foreach ($errors as $error) { 
-                ?>
-                  <span class="error-text"> <?php echo $error;?> </span>
-                <?php } ?>
+              <?php 
+                if (! empty($errors))
+                  foreach ($errors as $error) { 
+              ?>
+                <span class="error-text"> <?php echo $error;?> </span>
+              <?php } ?>
 
-                <input type="text" class="textbox-register" name="stationcode" placeholder="Station Code" pattern="^[A-Za-z]{3,4}$" required title="3-4 alphabet character code for Railway Station.">
+              <input type="text" class="textbox-register" name="stationcode" placeholder="Station Code" pattern="^[A-Za-z]{3,4}$" required title="3-4 alphabet character code for Railway Station.">
 
-                <input type="text" class="textbox-register" name="stationname" placeholder="Station Name"required title="Name of the Railway station.">
+              <input type="text" class="textbox-register" name="stationname" placeholder="Station Name"required title="Name of the Railway station.">
 
-                <input type="number" class="textbox-register" id="distance" name="distance" min = "0" max="4999" placeholder="Distance from Source Station in KMs." required title="Distance from the source station of the train in KMs.">
+              <input type="number" class="textbox-register" id="distance" name="distance" min = "0" max="4999" placeholder="Distance from Source Station in KMs." required title="Distance from the source station of the train in KMs.">
 
-                <input type="submit" class="submit-btn" name="addstation" value="ADD STATION ">
+              <input type="submit" class="submit-btn" name="addstation" value="ADD STATION ">
 
-                <span class="tail-text"> 
-                  Wish to see list of all stations? <strong><a class="login" href="stations.php">CLICK HERE</a></strong>
-                </span>
+              <span class="tail-text"> 
+                Wish to see list of all stations? <strong><a class="login" href="stations.php">CLICK HERE</a></strong>
+              </span>
             </form>
           </fieldset>
         </div>

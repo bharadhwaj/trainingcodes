@@ -98,3 +98,19 @@
 }
 
 /* Upto this is used in register.php */
+
+.form-text {
+  padding-bottom: 20px;
+  display: block;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  color:gray;
+}
+
+.errorpage-text {
+  padding-top: 50px;
+  text-align: center;
+  font-size: 70px;
+  font-weight: bold;
+}

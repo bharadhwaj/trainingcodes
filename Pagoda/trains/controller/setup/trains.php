@@ -7,7 +7,6 @@
 
 		public function __construct() {
 			$this->connection = new MySQLi(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME);
-
 		}
 	 
 		public function createTrain($trainnumber, $trainname, $routename) {

@@ -1,6 +1,7 @@
 <?php
 
 	include_once 'setup/stations.php';
+
 	$errors = array();
 	$errorexist = false;
 	$currentstationcode = $station->connection->real_escape_string($_GET['stationcode']);

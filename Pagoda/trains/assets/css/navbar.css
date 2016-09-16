@@ -5,6 +5,24 @@ body {
   margin: 0px;
 }
 
+.navbar-inverse-line {
+  margin-top: 0;
+  border: none;
+  height: .5px;
+  align: center;
+  color: #444444; 
+  background-color: #444444; 
+}
+
+.navbar-line {
+  margin-top: 0;
+  border: none;
+  height: .5px;
+  align: center;
+  color: #fff; 
+  background-color: #fff;
+}
+
 .navbar-brand > img {
   width: 100%;
   height: auto;
@@ -110,20 +128,5 @@ body {
   background-color: #C0845D;
 }
 
-.navbar-inverse-line {
-  margin-top: 0;
-  border: none;
-  height: .5px;
-  align: center;
-  color: #444444; 
-  background-color: #444444; 
-}
 
-.navbar-line {
-  margin-top: 0;
-  border: none;
-  height: .5px;
-  align: center;
-  color: #fff; 
-  background-color: #fff;
-}
+

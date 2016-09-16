@@ -1,6 +1,7 @@
 <?php
 
 	include_once 'setup/routes.php';
+	
 	$route = new Routes();
 	$currentroute = $route->connection->real_escape_string($_GET['routename']);
 
