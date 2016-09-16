@@ -35,8 +35,10 @@
                   <th class='heading'> Train Number </th>
                   <th class='heading'> Train Name </th>
                   <th class='heading'> Route Name </th>
-                  <th class='heading'> Delete </th>
+                  <?php if ($_SESSION["isadmin"]|| $_COOKIE["isadmin"]) {?>
                   <th class='heading'> Edit </th>
+                  <th class='heading'> Delete </th>
+                  <?php } ?>
                 </tr>
                 <?php 
                   $count = 1;
@@ -49,16 +51,7 @@
                     <td> <?php echo $trainnumber; ?> </td>
                     <td> <?php echo $trainname; ?> </td>
                     <td> <?php echo $routename; ?> </td>
-                    <td> 
-                      <center>
-                        <form method="post" action="controller/deletetrain.php">
-                          <input type="hidden" id="trainnumber" name="trainnumber" value="<?php echo $trainnumber; ?>">
-                          <button class="table-button trash" type="submit">
-                            <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                          </button>
-                        </form>
-                      </center>
-                    </td>
+                    <?php if ($_SESSION["isadmin"]|| $_COOKIE["isadmin"]) {?>
                     <td> 
                       <center>
                         <form method="get" action="edittrain.php">
@@ -69,6 +62,17 @@
                         </form> 
                       </center>
                     </td>
+                    <td> 
+                      <center>
+                        <form method="post" action="controller/deletetrain.php">
+                          <input type="hidden" id="trainnumber" name="trainnumber" value="<?php echo $trainnumber; ?>">
+                          <button class="table-button trash" type="submit">
+                            <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                          </button>
+                        </form>
+                      </center>
+                    </td>
+                    <?php } ?>
                   </tr>
                 <?php } ?>
               </table>
@@ -79,7 +83,9 @@
               <br/>
             <?php } ?>
             <br>
+            <?php if ($_SESSION["isadmin"]|| $_COOKIE["isadmin"]) {?>
             <a class="login" href="addtrain.php">ADD NEW TRAIN</a></strong>
+            <?php } ?>
             <br>
           </fieldset>
         </div>

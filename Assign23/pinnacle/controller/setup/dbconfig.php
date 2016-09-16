@@ -19,7 +19,13 @@
 		)";
 
 		$connection->query($usertable);
+
+		$password = md5('Password1.');
+
+		$userinsert = "INSERT INTO Users VALUES ('admin123','admin@admin.com','$password','India', 1)";
 		
+		$connection->query($userinsert);
+
 		$stationtable = "CREATE TABLE Stations ( 
 		StationCode varchar(4) NOT NULL, 
 		StationName varchar(32) NOT NULL, 

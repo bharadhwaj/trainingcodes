@@ -107,3 +107,10 @@
   text-align: center;
   color:gray;
 }
+
+.errorpage-text {
+  padding-top: 50px;
+  text-align: center;
+  font-size: 70px;
+  font-weight: bold;
+}

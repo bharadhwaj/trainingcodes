@@ -19,24 +19,23 @@
   <body>
     <?php include "navbar.php" ?>
     <hr class="navbar-inverse-line">
-
-    <?php include "controller/registervalidation.php" ?>
-      
+    <?php include "controller/register.php" ?>
+    
     <div class="container">
       <div align="center" class="col-md-8 col-md-offset-2">
         <form class="register-form" action="" method="post">
 
           <input type="text" class="textbox-register" name="username" placeholder="Username" pattern="[A-Za-z0-9]{6,12}" value='<?php echo $username ?>' required title="Can only have alphanumeric characters with length 6-12 characters.">
-          <span class="error-text"> <?php echo $usernameerror;?> </span>
+          <span class="error-text"> <?php echo $errors['username'];//if (isset($errors['username'])) echo $errors['username'];?> </span>
 
           <input type="email" class="textbox-register" name="email" placeholder="Email ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value='<?php echo $email ?>' required title="Enter a valid email.">  
-          <span class="error-text"> <?php echo $emailerror;?> </span>
+          <span class="error-text"> <?php echo $errors['email']; ?> </span>
 
           <input type="password" class="textbox-register" id="password" name="password" placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.*[ ]).{6,}" required title="At least one special character, one capital letter, one numeric value, one small letter and should have more than 6 characters.">
-          <span class="error-text"> <?php echo $passworderror;?> </span>
+          <span class="error-text"> <?php echo $errors['password']; ?> </span>
 
           <input type="password" class="textbox-register" id="confirm-password" name="confirm-password" placeholder="Confirm Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.*[ ]).{6,}" required title="At least one special character, one capital letter, one numeric value, one small letter and should have more than 6 characters."> 
-          <span class="error-text"> <?php echo $confirmpassworderror;?> </span>
+          <span class="error-text"> <?php echo $errors['confirm-password'];?> </span>
 
           <select required class="custom-dropdown" name="country" >
             <option value="error" disabled selected hidden>Select Country</option>
@@ -44,7 +43,7 @@
             <option value="USA" <?php if ($country == 'USA') echo 'selected' ?>> USA </option>
             <option value="Canada" <?php if ($country == 'Canada') echo 'selected' ?>> Canada </option>
           </select>
-          <span class="error-text"> <?php echo $countryerror;?> </span>
+          <span class="error-text"> <?php echo $errors['country'];?> </span>
           <br>
 
           <div class="terms-text">
@@ -54,10 +53,10 @@
             </label>
             <label for="terms"><span> &nbsp; Agree terms and condition</span></label>
           </div>
-          <span class="error-text"> <?php echo $termserror;?> </span>
+          <span class="error-text"> <?php echo $errors['terms'];?> </span>
           <br>
 
-          <input type="submit" class="submit-btn" name="signup" value="SIGN UP">
+          <input type="submit" class="submit-btn" name="register" value="SIGN UP">
 
           <span class="tail-text"> 
             Already a member? <strong><a class="login" href="login.php">LOGIN</a></strong>

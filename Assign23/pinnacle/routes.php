@@ -38,7 +38,9 @@
                   <th class='heading'> Source Station </th>
                   <th class='heading'> Destination Station </th>
                   <th class='heading'> View </th>
+                  <?php if ($_SESSION["isadmin"]|| $_COOKIE["isadmin"]) {?>
                   <th class='heading'> Delete </th>
+                  <?php } ?>
                 </tr>
                 <?php 
                   $count = 1;
@@ -60,8 +62,8 @@
                         </button>
                       </form>
                     </center>
-                    
                   </td>
+                  <?php if ($_SESSION["isadmin"]|| $_COOKIE["isadmin"]) {?>
                   <td> 
                     <center>
                       <form method="post" action="controller/deleteroute.php">
@@ -72,6 +74,7 @@
                       </form>
                     </center>
                   </td>
+                  <?php } ?>
                 </tr>
                 <?php } ?>
               </table>
@@ -82,7 +85,9 @@
             <?php } ?>
 
             <br>
+            <?php if ($_SESSION["isadmin"]|| $_COOKIE["isadmin"]) {?>
             <a class="login" href="addroute.php">ADD NEW ROUTE</a></strong>
+            <?php } ?>
             <br>
           </fieldset>
         </div>

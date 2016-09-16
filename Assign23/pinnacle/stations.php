@@ -37,8 +37,10 @@
                   <th class='heading'> Station Code </th>
                   <th class='heading'> Station Name </th>
                   <th class='heading'> Distance from Source </th>
-                  <th class='heading'> Delete </th>
+                  <?php if ($_SESSION["isadmin"]|| $_COOKIE["isadmin"]) {?>
                   <th class='heading'> Edit </th>
+                  <th class='heading'> Delete </th>
+                  <?php } ?>
                 </tr>
                 
                 <?php 
@@ -52,16 +54,7 @@
                   <td> <?php echo $stationcode; ?> </td>
                   <td> <?php echo $stationname; ?> </td>
                   <td> <?php echo $distance; ?> </td>
-                  <td> 
-                    <center>
-                      <form method="post" action="controller/deletestation.php">
-                      <input type="hidden" id="stationcode" name="stationcode" value="<?php echo $stationcode; ?>">
-                      <button class="table-button<?php if ($distance == 0) echo "-disabled"; else echo " trash";?>" type="submit" <?php if ($distance == 0) echo "disabled";?>>
-                        <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                      </button>
-                    </form>
-                    </center>
-                  </td>
+                  <?php if ($_SESSION["isadmin"] || $_COOKIE["isadmin"]) {?>
                   <td> 
                     <center>
                       <form method="get" action="editstation.php">
@@ -72,6 +65,17 @@
                       </form> 
                     </center>
                   </td>
+                  <td> 
+                    <center>
+                      <form method="post" action="controller/deletestation.php">
+                      <input type="hidden" id="stationcode" name="stationcode" value="<?php echo $stationcode; ?>">
+                      <button class="table-button<?php if ($distance == 0) echo "-disabled"; else echo " trash";?>" type="submit" <?php if ($distance == 0) echo "disabled";?>>
+                        <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                      </button>
+                    </form>
+                    </center>
+                  </td>
+                  <?php } ?>
                 </tr>
                 <?php } ?>
               </table>
@@ -81,7 +85,9 @@
               </span> <br>
             <?php } ?>
             <br>
+            <?php if ($_SESSION["isadmin"]|| $_COOKIE["isadmin"]) {?>
             <a class="login" href="addstation.php">ADD NEW STATION</a></strong>
+            <?php } ?>
             <br>
           </fieldset>
         </div>

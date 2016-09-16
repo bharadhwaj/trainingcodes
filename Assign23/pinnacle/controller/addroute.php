@@ -3,6 +3,12 @@
 	include_once 'setup/routes.php';
 	include_once 'setup/stations.php';
 
+	if (!$_SESSION["login"] || !$_COOKIE["login"])
+			header("Location: /login.php");
+	if (!$_SESSION["isadmin"] || !$_COOKIE["isadmin"])
+			header("Location: /error404.php");
+
+
 
 	$route = new Routes();
 	$station = new Stations();

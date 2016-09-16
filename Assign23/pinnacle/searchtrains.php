@@ -27,19 +27,6 @@
         <div align="center" class="col-md-10 col-md-offset-1">
           <fieldset class="table-display">
             <legend align="center">Train Passing through a Station</legend>
-            <?php 
-              $loggedin = false;
-              if (isset($_COOKIE['username'])) { 
-                $username = $_COOKIE['username'];
-                $loggedin = true;
-              }
-              else if (isset($_SESSION['username'])) { 
-                $username = $_SESSION['username'];
-                $loggedin = true;
-              } 
-              if ($loggedin)
-                echo "<h3> Hello, $username </h3>";
-            ?>
             <form class="register-form" action="" method="post">
             
                 <select required class="custom-dropdown textbox-register" name="stationcode" >
