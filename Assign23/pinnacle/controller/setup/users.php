@@ -77,60 +77,31 @@
 				return false;
 		}
 
-		public function errorCheckRegister($username, $email, $password, $confirmpassword, $country, $terms) {
+		public function errorCheckRegister($username, $email, $password, $confirmpassword) {
 			
 			$errors = array();
 			$errorexist = false;
 
-			// if (empty($username)) {
-			// 	$errors['username'] = "* Username field can't be empty.";
-			// 	$errorexist = true;
-			// }
-			// else
-			 if (! preg_match("/^[a-zA-Z0-9]{6,12}$/", $username)) {
+			if (! preg_match("/^[a-zA-Z0-9]{6,12}$/", $username)) {
 				$errors['username'] = "* Invalid Username format.";
 				$errorexist = true;
 			}
 
-			// if (empty($email)) {
-			// 	$errors['email'] = "* Email field can't be empty.";
-			// 	$errorexist = true;
-			// } 
-			// else
-			 if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
 				$errors['email'] = "* Invalid Email format.";
 				$errorexist = true;
 			}
 
-			// if (empty($password)) {
-			// 	$errors['password'] = "* Password field can't be empty.";
-			// 	$errorexist = true;
-			// }
-			// else
-			 if (! preg_match("/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.*[ ]).{6,}$/", $password)) {
+			if (! preg_match("/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.*[ ]).{6,}$/", $password)) {
 				$errors['password'] = "* Invalid password format.";
 				$errorexist = true;
 			}
-			// if (empty($confirmpassword)) {
-			// 	$errors['confirmpassword'] = "* Confirm Password field can't be empty.";
-			// 	$errorexist = true;
-			// }
-			// else
-			 if (md5($password) != $confirmpassword) {
+
+			if (md5($password) != $confirmpassword) {
 				$errors['confirmpassword'] = "* Passwords do not match";
 				$errorexist = true;
 			}
 
-			// if (empty($country)) {
-			// 	$$errors['country'] = "* Select any country.";
-			// 	$errorexist = true;
-			// }
-
-			// if (isset($terms)) {
-			// 	$$errors['terms'] = "* Accept terms and conditions to continue.";
-			// 	$errorexist = true;
-			// }
-		 	
 		 	return array($errorexist, $errors);
 		}
 	}

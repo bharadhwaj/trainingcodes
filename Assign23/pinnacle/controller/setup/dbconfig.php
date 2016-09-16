@@ -22,7 +22,7 @@
 
 		$password = md5('Password1.');
 
-		$userinsert = "INSERT INTO Users VALUES ('admin123','admin@admin.com','$password','India', 1)";
+		$userinsert = "INSERT INTO Users VALUES ('admin123','admin@admin.com','$password','India',1)";
 		
 		$connection->query($userinsert);
 

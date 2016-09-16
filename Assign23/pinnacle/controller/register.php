@@ -1,6 +1,9 @@
 <?php
 	
 	include_once "setup/users.php";
+	if ($_SESSION["login"] || $_COOKIE["login"])
+			header("Location: /");
+	
 	$user = new Users();
 	
 	$errorexist = false;
@@ -47,7 +50,7 @@
 			if (!$errorexist) {
 				if (!$user->userExists($username)) {
 					if (!$user->emailExists($email)) {
-						list($errorexist, $errors) = $user->errorCheckRegister($username, $email, $password, $confirmpassword, $country, $terms);
+						list($errorexist, $errors) = $user->errorCheckRegister($username, $email, $password, $confirmpassword);
 						if (!$errorexist){
 							$_SESSION["login"] = true;
 							$_SESSION["username"] = $username;

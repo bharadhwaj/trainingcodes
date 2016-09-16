@@ -2,6 +2,9 @@
 	
 	include_once "setup/users.php";
 
+	if ($_SESSION["login"] || $_COOKIE["login"])
+			header("Location: /");
+
 	$user = new Users();
 	$errorexist = false;
 

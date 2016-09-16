@@ -2,9 +2,9 @@
 
 	include_once 'setup/stations.php';
 
-	if (!$_SESSION["login"] || !$_COOKIE["login"])
+	if (!$_SESSION["login"] && !$_COOKIE["login"])
 			header("Location: /login.php");
-	if (!$_SESSION["isadmin"] || !$_COOKIE["isadmin"])
+	if (!$_SESSION["isadmin"] && !$_COOKIE["isadmin"])
 			header("Location: /error404.php");
 	
 	$station = new Stations();
