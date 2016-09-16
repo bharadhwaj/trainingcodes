@@ -1,0 +1,13 @@
+web1:
+  php_extensions:
+    - mysql
+    - mysqli
+  php_zend_extensions:
+    - ioncube_loader
+  php_expose_php: "Off"
+  php_error_reporting: 30719
+  php_display_errors: "0"
+  php_disable_functions:
+    - exec
+    - shell_exec
+    - system
