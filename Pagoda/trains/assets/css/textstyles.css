@@ -109,8 +109,9 @@
 }
 
 .errorpage-text {
-  padding-top: 50px;
+  padding-top: 30px;
   text-align: center;
-  font-size: 70px;
+  font-size: 60px;
   font-weight: bold;
+  color: grey;
 }
