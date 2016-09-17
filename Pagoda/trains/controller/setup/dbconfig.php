@@ -14,6 +14,22 @@
 		// $connection->query('DROP TABLE RouteDetails');
 		// $connection->query('DROP TABLE Routes');
 		// $connection->query('DROP TABLE Stations');
+		$usertable = "CREATE TABLE Users (
+		Username varchar(12) NOT NULL,
+		Email varchar(64) NOT NULL UNIQUE,
+		Password varchar(255) NOT NULL,
+		Country varchar(32) NOT NULL,
+		IsAdmin boolean DEFAULT 0,
+		PRIMARY KEY (Username)
+		)";
+
+		$connection->query($usertable);
+
+		$password = md5('Password1.');
+
+		$userinsert = "INSERT INTO Users VALUES ('admin123','admin@admin.com','$password','India',1)";
+		
+		$connection->query($userinsert);
 
 		$stationtable = "CREATE TABLE Stations ( 
 		StationCode varchar(4) NOT NULL, 

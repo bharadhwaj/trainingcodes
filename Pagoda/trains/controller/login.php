@@ -30,7 +30,7 @@
 						if (isset($_POST['remember']))
 							setcookie("isadmin", false , time()+(60*60*24));
 					}
-					header("Location: /searchtrains.php");
+					header("Location: /");
 				}
 				else {
 					$errortext = "Password doesn't match. Try again!";

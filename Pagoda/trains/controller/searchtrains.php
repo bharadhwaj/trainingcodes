@@ -18,7 +18,9 @@
 
 		if (isset($_POST['showtrains'])) {
 			$didpost = true;
-			$stationcode = $route->connection->real_escape_string($_POST['stationcode']);
+			$stationdetails = $route->connection->real_escape_string($_POST['stationdetails']);
+			preg_match('~\((.*?)\)~', $stationdetails, $output);
+			$stationcode = $output[1];
 			$searchstation = $stationcode;
 			$getroute = $route->getRoutes($stationcode);
 			while ($newroutedetails = $getroute->fetch_array()) {
