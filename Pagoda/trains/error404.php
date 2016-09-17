@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/img/favicon.ico">
 
-    <title>Pinnacle | Home</title>
+    <title>Pinnacle | Error 404</title>
 
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/styles.css" rel="stylesheet">
@@ -22,6 +22,7 @@
       <strong>404 Error!</strong>
     </div>
     <div class="subheading-text">
+    <strong>Page you requested not found!</strong> <br>
     <strong> <a href="/">Click here</a> to go back to home!</strong>
     </div>
 
