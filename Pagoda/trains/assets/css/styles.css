@@ -109,6 +109,7 @@ th.heading {
   border: 1px solid #A2C537;
   color: #fff;
   padding: 10px;
+  text-align: center;
 }
 
 tr.print-value:nth-child(even) {
@@ -226,6 +227,23 @@ label.item > input[type="radio"]:checked + .radio-image::before {
   font-weight: bold;
 }
 
+.table-btn {
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  border: 0px solid #C2C2C2;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  color:#fff;
+  background: #f3690e;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  width: auto;
+  display: block;
+  font-weight: bold;
+}
+
 .submit-btn:hover {
   text-decoration: none;
 }
@@ -282,24 +300,28 @@ label.item > input[type="radio"]:checked + .radio-image::before {
 }
 
 .table-button-disabled {
-  border: 0px solid #C2C2C2;
+  border: none;
   text-align: center;
   color: grey;
   cursor: not-allowed !important;
   background: transparent;
-  padding: 5px 5px 5px 5px;
+  padding: 10px 10px 10px 10px;
   text-decoration: none;
   display: block;
 }
 
 .table-button {
-  border: 0px solid #C2C2C2;
+  border: none;
   text-align: center;
   color: #81aa06;
   background: transparent;
   padding: 5px 5px 5px 5px;
   text-decoration: none;
   display: block;
+}
+
+.black {
+  color: #000;
 }
 
 .table-button:hover {
@@ -311,9 +333,18 @@ label.item > input[type="radio"]:checked + .radio-image::before {
   color: #ff0000;
 }
 
+.success:hover {
+  transition: 0.3s;
+  color: #81aa06;
+}
+
 .edit:hover {
   transition: 0.3s;
   color: #0000ff;
+}
+
+.wrong {
+  color: #ff0000;
 }
 
 .view:hover {

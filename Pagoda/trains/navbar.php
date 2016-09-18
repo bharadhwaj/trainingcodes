@@ -33,21 +33,25 @@
           } 
           if ($loggedin) {
         ?>
-        <li><a href="csvpreview.php">CSV Preview</a></li>
-        <li><a href="stations.php">Stations</a></li>
-        <li><a href="routes.php">Routes</a></li>
-        <li><a href="trains.php">Trains</a></li>
-        <li><a href="searchtrains.php">Search</a></li>
+        <li><a href="stations.php"><i class="fa fa-home" aria-hidden="true"></i> &nbsp; Stations</a></li>
+        <li><a href="routes.php"><i class="fa fa-road" aria-hidden="true"></i> &nbsp; Routes</a></li>
+        <li><a href="trains.php"><i class="fa fa-train" aria-hidden="true"></i> &nbsp; Trains</a></li>
+        <li><a href="searchtrains.php"><i class="fa fa-search" aria-hidden="true"></i> &nbsp; Search</a></li>
+        <?php if($_COOKIE['isadmin'] || $_SESSION['isadmin']) { ?>
+          <li><a href="panel.php"><i class="fa fa-wrench" aria-hidden="true"></i> &nbsp; Admin</a></li>
+        <?php } ?>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Hi, <?php echo $username; ?> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >
+            <i class="fa fa-user" aria-hidden="true"></i> &nbsp; Hi, <?php echo $username; ?> <span class="caret"></span>
+          </a>
           <ul class="dropdown-menu">
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> &nbsp; Logout</a></li>
           </ul>
         </li>
         
         <?php } else { ?>
-        <li><a href="login.php">Login</a></li>
-        <li><a href="register.php">Register</a></li>
+        <li><a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i> &nbsp; Login</a></li>
+        <li><a href="register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> &nbsp; Register</a></li>
         <?php } ?>
       </ul>
     </div>

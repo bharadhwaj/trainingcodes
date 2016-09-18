@@ -1,3 +1,8 @@
+<?php 
+  if (!$_SESSION["isadmin"] && !$_COOKIE["isadmin"])
+    include "error404.php";
+  else {
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -90,3 +95,6 @@
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
   </body>
 </html>
+<?php 
+  }
+?>

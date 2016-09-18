@@ -18,6 +18,18 @@
 
 		}
 
+		public function readUsers() {
+			$readusers = $this->connection->prepare("SELECT Username, Email, Country, IsAdmin FROM Users");
+			return $readusers;
+		}
+
+		public function changeRole($username, $number) {
+			$togglerole = $this->connection->prepare("UPDATE Users SET IsAdmin = ? WHERE Username = ?");
+	 		$togglerole->bind_param("is", $number, $username);
+			$togglerole->execute();
+			header("Location: /panel.php");
+		}
+
 		public function isAdmin($username) {
 			$isadmin = $this->connection->prepare("SELECT IsAdmin FROM Users WHERE Username = '$username'");
 			$isadmin->bind_result($admin);

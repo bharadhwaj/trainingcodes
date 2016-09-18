@@ -22,11 +22,11 @@
       <strong>404 Error!</strong>
     </div>
     <div class="subheading-text">
-    <strong>Page you requested not found!</strong> <br>
+    <strong>Page you requested not found!</strong> <br> 
     <strong> <a href="/">Click here</a> to go back to home!</strong>
     </div>
 
-    <img src="assets/images/404.jpg" class="notfound-page">
+    <img class="footer-image" src="assets/images/404.jpg" class="notfound-page">
 
    
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">

@@ -1,3 +1,8 @@
+<?php 
+  if (!$_SESSION["login"] && !$_COOKIE["login"])
+      header("Location: /login.php");
+  else {
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,19 +33,18 @@
           <fieldset class="table-display">
             <legend align="center">Train Passing through a Station</legend>
             <form class="register-form" action="" method="post">
-            
-                <select required class="custom-dropdown textbox-register" name="stationcode" >
-                  <option value="error" disabled selected hidden>Station Name</option>
+                <input required placeholder="Station Name" type="text" class="textbox-register" id="txtAutoComplete" list="stationList" name="stationdetails"/>
+                <datalist id="stationList">
                     <?php
                       $readstations->bind_result($stationcode, $stationname, $distance);
                       $readstations->execute();
                       while($readstations->fetch()){
                     ?>
-                  <option value="<?php echo $stationcode; ?>"> 
+                  <option value="<?php echo $stationname . " (" . $stationcode . ")"; ?>"> 
                     <?php echo $stationname . " (" . $stationcode . ")"; ?> 
                   </option>
                   <?php } ?>
-                </select>
+                </datalist>
 
                 <input type="submit" class="submit-btn" name="showtrains" value="SHOW TRAINS">
                 
@@ -85,3 +89,4 @@
 
   </body>
 </html>
+<?php } ?>

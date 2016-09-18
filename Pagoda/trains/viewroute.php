@@ -1,3 +1,9 @@
+<?php 
+  if (!$_SESSION["login"] && !$_COOKIE["login"])
+      header("Location: /login.php");
+  else {
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -60,3 +66,4 @@
 
   </body>
 </html>
+<?php } ?>

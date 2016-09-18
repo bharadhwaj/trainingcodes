@@ -33,7 +33,7 @@
 
           <input type="password" class="textbox-register" id="password" name="password" placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.*[ ]).{6,}" required title="At least one special character, one capital letter, one numeric value, one small letter and should have more than 6 characters.">
 
-          <span class="form-text"><input type="checkbox" name="remember"> Remember Me. </span>
+          <span class="form-text"><input type="checkbox" name="remember"> Keep me signed in. </span>
 
           <input type="submit" class="submit-btn" name="login" value="Login">
 
