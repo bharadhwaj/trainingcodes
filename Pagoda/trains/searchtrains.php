@@ -1,4 +1,5 @@
 <?php 
+  session_start();
   if (!$_SESSION["login"] && !$_COOKIE["login"])
       header("Location: /login.php");
   else {
@@ -33,7 +34,19 @@
           <fieldset class="table-display">
             <legend align="center">Train Passing through a Station</legend>
             <form class="register-form" action="" method="post">
-                <input required placeholder="Station Name" type="text" class="textbox-register" id="txtAutoComplete" list="stationList" name="stationdetails"/>
+                <input required placeholder="Station Name" type="text" autocomplete="off" class="textbox-register" id="stationdetails" onkeyup="activateDropdown()" onkeydown="activateDropdown()" name="stationdetails"/>
+                <script type="text/javascript">
+                  var input = document.getElementById ("stationdetails");
+                  function activateDropdown() {
+                    if( input.value.length < 2 ) {
+                      input.setAttribute("list", "");
+                    } 
+                    else {
+                      input.setAttribute("list", "stationList");
+                      input.focus();
+                    }
+                  }
+                </script>
                 <datalist id="stationList">
                     <?php
                       $readstations->bind_result($stationcode, $stationname, $distance);

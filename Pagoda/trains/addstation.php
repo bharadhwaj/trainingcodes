@@ -1,4 +1,5 @@
 <?php 
+  session_start();
   if (!$_SESSION["isadmin"] && !$_COOKIE["isadmin"])
     include "error404.php";
   else {

@@ -29,7 +29,7 @@ body {
 }
 
 .container-fluid .navbar-toggle {
-  margin: 25px 35vw 25px 0;
+  margin: 25px 25vw 25px 0;
 }
 
 .navbar-default {
@@ -54,17 +54,16 @@ body {
 }
 
 .navbar-default > .container-fluid > .navbar-header {
-  padding: 20px;
+  padding: 10px;
 }
 
 .navbar-default > .container-fluid > .navbar-collapse > .navbar-right  {
-  padding-right: 20px;
   padding-top: 23px;
   padding-bottom: 20px;
 }
 
 .navbar-collapse > .navbar-right > li {
-  padding: 10px;
+  padding: 5px;
 }
 
 .navbar-collapse > .navbar-right > li > a {
@@ -103,17 +102,16 @@ body {
 }
 
 .navbar-inverse > .container-fluid > .navbar-header {
-  padding: 20px;
+  padding: 10px;
 }
 
 .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-right  {
-  padding-right: 20px;
   padding-top: 23px;
   padding-bottom: 20px;
 }
 
 .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-right > li {
-  padding: 10px;
+  padding: 5px;
 }
 
 .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-right > li > a {

@@ -1,6 +1,7 @@
 <?php
 	
 	include_once "dbconfig.php";
+	define('SECRET_MSG', 'This Is A Secret Message');
 
 	class Users {
 		public $connection;
@@ -53,6 +54,26 @@
 			}
 			else 
 				return false;
+		}
+
+		public function getHashString($email) {
+			$getdetails = $this->connection->prepare("SELECT Username, Email FROM Users WHERE Email = '$email'");
+			$getdetails->bind_result($username, $email);
+			$getdetails->execute();
+			$getdetails->fetch();
+			$getdetails->close();
+			$string = $username.$email;
+			$hashedstring = hash_hmac('sha256', $string, SECRET_MSG);
+			return array($username, $hashedstring);
+		}
+
+		public function updatePassword($username, $password) {
+			$updatepassword = $this->connection->prepare("UPDATE Users SET Password = ? WHERE Username = ?");
+	 		$updatepassword->bind_param("ss", $password, $username);
+			$updatepassword->execute();
+			$updatepassword->close();
+			header("Location: /login.php");
+
 		}
 		
 		public function createCookie($username, $password) {

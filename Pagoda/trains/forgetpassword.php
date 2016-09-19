@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/img/favicon.ico">
 
-    <title>Pinnacle | Login</title>
+    <title>Pinnacle | Reset Password</title>
 
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/styles.css" rel="stylesheet">
@@ -23,29 +23,18 @@
     <?php include "navbar.php" ?>
     <hr class="navbar-inverse-line">
 
-    <?php include "controller/login.php" ?>
+    <?php include "controller/forgetpassword.php" ?>
       
     <div class="container">
       <div align="center" class="col-md-8 col-md-offset-2">
         <form class="register-form login-form" action="" method="post">
-          <?php if ($errorexist) { ?>
-            <span class="error-text"> <?php echo $errortext;?> </span>
-          <?php } ?>
 
-          <input type="text" class="textbox-register" name="username" placeholder="Username" pattern="[A-Za-z0-9]{6,12}" value='<?php echo $username ?>' required title="Can only have alphanumeric characters with length 6-12 characters.">
+          <input type="email" class="textbox-register" name="emailid" placeholder="Email ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required title="Enter a valid email.">  
 
-          <input type="password" class="textbox-register" id="password" name="password" placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.*[ ]).{6,}" required title="At least one special character, one capital letter, one numeric value, one small letter and should have more than 6 characters.">
-
-          <span class="form-text"><input type="checkbox" name="remember"> Keep me signed in. </span>
-
-          <input type="submit" class="submit-btn" name="login" value="Login">
+          <input type="submit" class="submit-btn" name="forgetpassword" value="Reset Password">
 
           <span class="tail-text"> 
-            Forget Password? <strong><a class="login" href="forgetpassword.php">Click Here</a></strong> to reset.
-          </span>
-
-          <span class="tail-text"> 
-            New member here? <strong><a class="login" href="register.php">SIGN UP</a></strong>
+            Go to Login page? <strong><a class="login" href="login.php">Click Here</a></strong>
           </span>
         </form>
       </div>

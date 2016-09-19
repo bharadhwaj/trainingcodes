@@ -1,5 +1,14 @@
 <?php 
   session_start();
+  include "controller/setup/users.php";
+  $user = new Users();
+  $id = $user->connection->real_escape_string($_GET['id']);
+  $emailid = $user->connection->real_escape_string($_GET['emailid']);
+  list($username, $hashedstring) = $user->getHashString($emailid);
+  if (! ($hashedstring == $id) ) {
+    include "error404.php";
+  }
+  else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +20,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/img/favicon.ico">
 
-    <title>Pinnacle | Login</title>
+    <title>Pinnacle | Reset Password</title>
 
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/styles.css" rel="stylesheet">
@@ -23,30 +32,20 @@
     <?php include "navbar.php" ?>
     <hr class="navbar-inverse-line">
 
-    <?php include "controller/login.php" ?>
-      
     <div class="container">
       <div align="center" class="col-md-8 col-md-offset-2">
-        <form class="register-form login-form" action="" method="post">
-          <?php if ($errorexist) { ?>
-            <span class="error-text"> <?php echo $errortext;?> </span>
-          <?php } ?>
+        <form class="register-form" action="controller/resetpassword.php" method="post">
 
-          <input type="text" class="textbox-register" name="username" placeholder="Username" pattern="[A-Za-z0-9]{6,12}" value='<?php echo $username ?>' required title="Can only have alphanumeric characters with length 6-12 characters.">
-
+          <div class="terms-text"> Please enter your new password. </div>
+          <input type="hidden" name="username" value="<?php echo $username;?>" >
           <input type="password" class="textbox-register" id="password" name="password" placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.*[ ]).{6,}" required title="At least one special character, one capital letter, one numeric value, one small letter and should have more than 6 characters.">
+          <span class="error-text"> <?php echo $errors['password']; ?> </span>
 
-          <span class="form-text"><input type="checkbox" name="remember"> Keep me signed in. </span>
+          <input type="password" class="textbox-register" id="confirm-password" name="confirm-password" placeholder="Confirm Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.*[ ]).{6,}" required title="At least one special character, one capital letter, one numeric value, one small letter and should have more than 6 characters."> 
+          <span class="error-text"> <?php echo $errors['confirm-password'];?> </span>
 
-          <input type="submit" class="submit-btn" name="login" value="Login">
+          <input type="submit" class="submit-btn" name="resetpassword" value="CHANGE PASSWORD">
 
-          <span class="tail-text"> 
-            Forget Password? <strong><a class="login" href="forgetpassword.php">Click Here</a></strong> to reset.
-          </span>
-
-          <span class="tail-text"> 
-            New member here? <strong><a class="login" href="register.php">SIGN UP</a></strong>
-          </span>
         </form>
       </div>
     </div>
@@ -60,3 +59,4 @@
     
   </body>
 </html>
+<?php } ?>

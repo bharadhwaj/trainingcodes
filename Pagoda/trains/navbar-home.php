@@ -2,16 +2,15 @@
 
   include_once "controller/setup/dbconfig.php";
   include_once "controller/setup/users.php";
-  $user = new Users(); 
-  session_start();
+  $user = new Users();
   
 ?>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand navbar-alignit" href="/">
-        <img alt="Brand" src="assets/images/pinnacle_lgo_white.png">
+      <a class="navbar-brand" href="/">
+        <img alt="Pinnacle" src="assets/images/pinnacle_lgo_white.png">
       </a>
       <button align="center" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
