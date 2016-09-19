@@ -14,15 +14,15 @@
 	$mail->Body = "
 	<html> 
 	  <body> 
-	    <b> Hi, $username </b> <br><br>
+	    <b> Hi $username, </b> <br><br>
 	    <p>We have received your request for reseting your Password. Please <a href='$resetpasswordurl'>click here</a> to reset the password. If the link doesn't work, click on the below URL</p>
 	    <pre> $resetpasswordurl </pre>
 	    <p>If you haven't triggered this operation, please ignore this message. </p><br>
 	    Thanks, <br><br>
 	    <b> Team Trains Pinnacle </b>
-	    </body>
-	    </html>";
-	$mail->AddAddress("bharadhwaj@qburst.com");
+	  </body>
+	</html>";
+	$mail->AddAddress($emailid);
 	$mail->Send();
 
 ?>
